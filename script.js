@@ -26,6 +26,9 @@ function calculateMinCost(arr,n)
    
         return res;
 }
-let arr=[4,2,7,6,9];
-let n=arr.length;
+var n = prompt("Enter the number of elements");
+var arr = [];
+for (var i = 0; i < n; i++) {
+    arr[i] = prompt("Enter element " + (i+1));
+}
 console.log( calculateMinCost(arr, n));
