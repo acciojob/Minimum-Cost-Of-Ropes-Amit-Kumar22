@@ -1,30 +1,16 @@
-function calculateMinCost(arr,n)
-{
-    // Create a priority queue
-        let pq = [];
-   
-        // Adding items to the pQueue
-        for (let i = 0; i < n; i++) {
-            pq.push(arr[i]);
-        }   
-           
-        pq.sort(function(a,b){return a-b;});
-         
-        // Initialize result
-        let res = 0;
-   
-        // While size of priority queue
-        // is more than 1
-        while (pq.length > 1) {
-            // Extract shortest two ropes from pq
-            let first = pq.shift();
-            let second = pq.shift();
-            res += first + second;
-            pq.push(first + second);
-            pq.sort(function(a,b){return a-b;});
-        }
-   
-        return res;
+ function calculateMinCost() {
+  let ans = 0,
+    arr = document
+      .getElementById("rope-lengths")
+      .value.split(",")
+      .map((val) => parseInt(val));
+  while (arr.length > 1) {
+    arr.sort((a, b) => a - b);
+    arr[1] += arr[0];
+    ans += arr[1];
+    arr.shift();
+  }
+  document.getElementById("result").innerText = ans;
 }
 var n = prompt("Enter the number of elements");
 var arr = [];
